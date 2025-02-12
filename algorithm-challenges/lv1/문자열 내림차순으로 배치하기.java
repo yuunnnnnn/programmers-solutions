@@ -2,36 +2,10 @@ import java.util.*;
 
 class Solution {
     public String solution(String s) {
-        Character[] charArr = new Character[s.length()];
-        for (int i = 0; i < s.length(); i++) {
-            charArr[i] = s.charAt(i);
-        }
-        
-        Arrays.sort(charArr, Collections.reverseOrder());
-        
-        List<Character> list = new ArrayList<>();
-        for (int i = 0; i < charArr.length; i++) {
-            if (Character.isLowerCase(charArr[i])) {
-                list.add(charArr[i]);
-            }
-        }
-        
-        for (int i = 0; i < charArr.length; i++) {
-            if (Character.isUpperCase(charArr[i])) {
-                list.add(charArr[i]);
-            }
-        }
-        
-        char[] chArr = new char[list.size()];
-        for (int i = 0; i < list.size(); i++) {
-            chArr[i] = list.get(i);
-        }
-        
-        String str = "";
-        for (int i = 0; i < chArr.length; i++) {
-            str += chArr[i];
-        }
-        return str;
+        char[] arr = s.toCharArray();
+        Arrays.sort(arr); // 오름차순 정렬 후
+        StringBuilder sb = new StringBuilder(new String(arr)); 
+        return sb.reverse().toString(); // 뒤집어서 내림차순 정렬
     }
 }
 
