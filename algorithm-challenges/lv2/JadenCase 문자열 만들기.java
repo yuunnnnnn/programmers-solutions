@@ -1,19 +1,23 @@
 class Solution {
     public String solution(String s) {
         char[] charArr = s.toCharArray();
-        String answer = "";
-        
+        boolean capitalize = true; // 단어의 첫 글자를 대문자로 변환할지 여부
+        StringBuilder answer = new StringBuilder();
+
         for (int i = 0; i < charArr.length; i++) {
-            if (charArr[i] != ' ') {
-                charArr[i] = Character.toLowerCase(charArr[i]);
+            if (charArr[i] == ' ') {
+                capitalize = true; // 공백이 나오면 다음 문자는 대문자로 변환
+            } else {
+                if (capitalize) {
+                    charArr[i] = Character.toUpperCase(charArr[i]); // 첫 글자는 대문자로
+                } else {
+                    charArr[i] = Character.toLowerCase(charArr[i]); // 나머지는 소문자로
+                }
+                capitalize = false;
             }
-            if (i > 0 && charArr[i - 1] == ' ') {
-                charArr[i] = Character.toUpperCase(charArr[i]);
-            }
-            charArr[0] = Character.toUpperCase(charArr[0]);
-            answer += charArr[i];
+            answer.append(charArr[i]); // 문자열 누적
         }
-        return answer;
+        return answer.toString();
     }
 }
 
