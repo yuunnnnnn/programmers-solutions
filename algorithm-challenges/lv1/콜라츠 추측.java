@@ -2,7 +2,7 @@ class Solution {
     public int solution(int num) {
         long n = num;
         int answer = 0;
-        while (n > 1) {
+        while (1 < n) {
             if (answer == 500) {
                 return -1;
             }

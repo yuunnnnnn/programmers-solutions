@@ -1,7 +1,7 @@
 class Solution {
     public int solution(int n) {
-        int answer = 0;
         String[] arr = String.valueOf(n).split("");
+        int answer = 0;
         for (int i = 0; i < arr.length; i++) {
             answer += Integer.parseInt(arr[i]);
         }
